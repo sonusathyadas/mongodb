@@ -38,7 +38,8 @@ db.grantRolesToUser(
 Run the `mongostat.exe` again with the credentials. You will see the following output
 ```
 insert query update delete getmore command dirty used flushes vsize   res qrw arw net_in net_out conn                time
-    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   113b   35.4k    3 Jan  7 15:50:08.038       *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   110b   34.5k    3 Jan  7 15:50:09.051
+    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   113b   35.4k    3 Jan  7 15:50:08.038       
+    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   110b   34.5k    3 Jan  7 15:50:09.051
     *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   113b   35.3k    3 Jan  7 15:50:10.040
     *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   112b   35.1k    3 Jan  7 15:50:11.035
     *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   110b   34.5k    3 Jan  7 15:50:12.048
