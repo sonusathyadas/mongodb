@@ -39,7 +39,8 @@ Run the `mongostat.exe` again with the credentials. You will see the following o
 ```
 C:\Users\sonus>mongostat --authenticationDatabase admin --username labuser --password MyPassword
 insert query update delete getmore command dirty used flushes vsize  res qrw arw net_in net_out conn                time
-    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   111b   34.8k    2 Jan  7 16:31:26.596        *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   110b   34.5k    2 Jan  7 16:31:27.607
+    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   111b   34.8k    2 Jan  7 16:31:26.596        
+    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   110b   34.5k    2 Jan  7 16:31:27.607
     *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   108b   33.6k    2 Jan  7 16:31:28.644
     *0    *0     *0     *0       0     1|0  0.0% 0.0%       1 5.38G 166M 0|0 1|0   117b   36.7k    2 Jan  7 16:31:29.595
     *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   111b   34.8k    2 Jan  7 16:31:30.598
