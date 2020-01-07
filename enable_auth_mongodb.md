@@ -10,7 +10,8 @@
 3. Connect to the `admin` database
     > use admin;
 4. Run the following command to create a user with the name `labuser`.
-    ``` db.createUser(
+    ``` 
+        db.createUser(
         {
             user: "labuser",
             pwd: passwordPrompt(), // or cleartext password
