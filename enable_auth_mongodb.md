@@ -24,7 +24,11 @@
     > mongo --port 27017  --authenticationDatabase "admin" -u "labuser" -p
     
     > **Note:** you can also authenticate to mongodb server after connecting using mongo shell. To do so, first connect to the server using the following command
+
     > &gt; mongo --port 27017
+
     > Then switch to the authenticating database and run the following command to provide credentials.
+
     > &gt; use admin;
+    
     > &gt; db.auth('labuser', passwordPrompt());
