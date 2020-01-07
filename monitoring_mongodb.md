@@ -37,18 +37,16 @@ db.grantRolesToUser(
 ```
 Run the `mongostat.exe` again with the credentials. You will see the following output
 ```
-C:\Users\sonus>mongostat --authenticationDatabase admin --username labuser --password MyPassword
-insert query update delete getmore command dirty used flushes vsize  res qrw arw net_in net_out conn                time
-    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   111b   34.8k    2 Jan  7 16:31:26.596        
-    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   110b   34.5k    2 Jan  7 16:31:27.607
-    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   108b   33.6k    2 Jan  7 16:31:28.644
-    *0    *0     *0     *0       0     1|0  0.0% 0.0%       1 5.38G 166M 0|0 1|0   117b   36.7k    2 Jan  7 16:31:29.595
-    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   111b   34.8k    2 Jan  7 16:31:30.598
-    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   112b   35.0k    2 Jan  7 16:31:31.595
-    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   111b   34.9k    2 Jan  7 16:31:32.595
-    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   111b   34.9k    2 Jan  7 16:31:33.596
-    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   112b   35.0k    2 Jan  7 16:31:34.594
-    *0    *0     *0     *0       0     2|0  0.0% 0.0%       0 5.38G 166M 0|0 1|0   167b   35.2k    2 Jan  7 16:31:35.591
+insert query update delete getmore command dirty used flushes vsize   res qrw arw net_in net_out conn                time
+    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   113b   35.4k    3 Jan  7 15:50:08.038       *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   110b   34.5k    3 Jan  7 15:50:09.051
+    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   113b   35.3k    3 Jan  7 15:50:10.040
+    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   112b   35.1k    3 Jan  7 15:50:11.035
+    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   110b   34.5k    3 Jan  7 15:50:12.048
+    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   113b   35.5k    3 Jan  7 15:50:13.032
+    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   111b   34.6k    3 Jan  7 15:50:14.041
+    *0    *0     *0     *0       0     1|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   112b   35.0k    3 Jan  7 15:50:15.037
+    *0    *0     *0     *0       0     0|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   111b   34.8k    3 Jan  7 15:50:16.041
+    *0    *0     *0     *0       0     2|0  0.0% 0.0%       0 5.38G 24.0M 0|0 1|0   167b   35.4k    3 Jan  7 15:50:17.035
 ```
 #### Mongotop.exe
 mongotop tracks and reports the current read and write activity of a MongoDB instance, and reports these statistics on a per collection basis.
