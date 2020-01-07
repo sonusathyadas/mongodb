@@ -12,7 +12,7 @@ MongoDB provides various methods for collecting data about the state of a runnin
 * `MongoDB Ops Manager` is an on-premise solution available in `MongoDB Enterprise Advanced` that monitors running MongoDB deployments to collect data and provide visualization and alerts based on that data.
 
 ### Free monitoring 
-Enable or disable the free monitoring during runtime using db.enableFreeMonitoring() and db.disableFreeMonitoring(). 
+Enable or disable the free monitoring during runtime using `db.enableFreeMonitoring()` and `db.disableFreeMonitoring()`. 
 
 ### Utitlies distributed with Mongodb
 #### Mongostat.exe
