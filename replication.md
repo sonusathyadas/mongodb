@@ -26,10 +26,12 @@ In this session we will be setting up a replica set on our localhost machine. Fo
 2. Create a directory named 'replicaset'.
     > md replicaset
 3. Move to the newly created directory and create three sub directories with the names 'data1', 'data2' and 'data3' respectively.
-    > cd replicaset
-    > md data1
-    > md data2
-    > md data3
+    ```
+    cd replicaset
+    md data1
+    md data2
+    md data3
+    ```
 4. We are going to create three instances of mongodb server running on 3 different port numbers. Here, we can select port numbers 27011, 27012, 27013 respectively. Assign the replica set name as 'rs0'. You can use three different command prompts to run these instances.
     > mongod --dbpath "C:\replicaset\data1" --port 27011 --replSet rs0
 
