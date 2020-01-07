@@ -1,0 +1,83 @@
+
+MongoDB Indexes
+	- Indexes faster the query performance
+	- Indexes are special data structures that store a portion of the dataset
+		- a field or set of fields
+	- Index Names
+		The default name for an index is the concatenation of the indexed keys and each key’s direction in the index ( i.e. 1 or -1) using underscores as a separator. 
+		For example, an index created on { item : 1, quantity: -1 } has the name item_1_quantity_-1.
+	- Index Types
+		MongoDB provides a number of different index types to support specific types of data and queries.
+		- Single Field: 
+			In addition to the MongoDB-defined _id index, MongoDB supports the creation of user-defined ascending/descending indexes on a single field of a document.
+		- Compound Index
+			MongoDB also supports user-defined indexes on multiple fields, i.e. compound indexes.
+			The order of fields listed in a compound index has significance. 
+			For instance, if a compound index consists of { userid: 1, score: -1 }, the index sorts first by userid and then, within each userid value, sorts by score.
+		- Multikey Index
+			MongoDB uses multikey indexes to index the content stored in arrays. 
+			If you index a field that holds an array value, MongoDB creates separate index entries for every element of the array. 
+			These multikey indexes allow queries to select documents that contain arrays by matching on element or elements of the arrays. 
+			MongoDB automatically determines whether to create a multikey index if the indexed field contains an array value; you do not need to explicitly specify the multikey type.
+		- Geospatial Index
+			To support efficient queries of geospatial coordinate data, MongoDB provides two special indexes: 2d indexes that uses planar geometry when returning results and 2dsphere indexes that use spherical geometry to return results.
+		- Text Indexes
+			MongoDB provides a text index type that supports searching for string content in a collection. These text indexes do not store language-specific stop words (e.g. “the”, “a”, “or”) and stem the words in a collection to only store root words.
+		- Hashed Indexes
+			To support hash based sharding, MongoDB provides a hashed index type, which indexes the hash of the value of a field. These indexes have a more random distribution of values along their range, but only support equality matches and cannot support range-based queries.
+	- Covered Queries
+		When the query criteria and the projection of a query include only the indexed fields, MongoDB returns results directly from the index without scanning any documents or bringing documents into memory. These covered queries can be very efficient.
+	
+	
+Database commands
+	The db.runCommand() method is used to provide a helper to run specified database commands.
+	- Run a command against database
+		db.runCommand({ command })
+	- Run an admin command
+		db.adminCommand({ command })
+Capped collections
+	We can create collections in mongoDb on which we can apply size limit. 
+	These special type of collections are called Capped Collections. 
+	These are a kind of circular queues, in which if allocated size limit is reached, it makes space for new documents by overwriting the oldest documents in the collection
+	Syntax:
+		db.createCollection(nameOfCollection, {capped: Boolean, autoIndexId: Boolean, size: Number, max : Number})
+		Parameters:
+		nameOfCollection: the capped collection name
+		“capped” option : set to true in case to create a capped collection
+		“size” option: specify the size limit for the collection in bytes(mandatory in case of capped collection)
+		“max” option: specify the limit on maximum number of documents allowed in the collection(size option is given preference over max option)
+		“autoIndexId” option: set to false in case of capped collections to disable the automatic index creation
+		
+	
+GridFS
+	- Used to store files larger than 16 mb
+	- Stores the large files in to chunks of size 255kb
+	- It uses two collections for it
+		- files: metadata of the file
+		- chunks: parts (chunks) of file
+	- Both collections are from a default bucket called fs
+		fs.files
+		fs.chunks
+	- To upload files we can use 
+		 A mongodb driver with any language
+		 'mongofiles' CLI tool located in the bin folder
+		 
+	- Usage of mongofiles
+		eg: mongofiles -d records list 
+			return a list of all files in a GridFS collection in the records database
+		eg: mongofiles --host abc.net --port 37017 -d=records list
+			List all files in records db located in abc.net server
+		eg: mongofiles -d=records put abc.lf
+			Upload large file named abc.lf to database records 
+		eg: mongofiles -d=records delete abc.lf
+			Delete a file abc.lf from database records
+		eg: mongofiles -d=records search corinth
+			To search for files in the GridFS collection in the records database that have the string corinth in their names
+		eg: mongofiles -d records list ab
+			list all files in the GridFS collection in the records database that begin with the string 'ab'
+		eg: mongofiles -d=records get abc.lf
+			fetch the file from the GridFS collection in the records database named abc.lf
+		eg: mongofiles -d=records get_id 'ObjectId("56feac751f417d0357e7140f")'
+			fetch the file from the GridFS collection in the records database with _id: ObjectId("56feac751f417d0357e7140f")
+			
+		

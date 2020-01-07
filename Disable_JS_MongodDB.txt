@@ -1,0 +1,50 @@
+Server side JS 
+=--------------
+Run JavaScript from MongoShell
+---------
+	1) Create a sample.js File containing the code such like
+		db.system.js.save({
+			_id: "sum", 
+			value: function (x, y) { 
+				print(`x is ${x} and y is ${y}`);
+				print('Doing addition using sum method');            
+				return x + y; 
+            }
+		});
+	2) Open mongoshell by running the command to execute the JS
+		mongo localhost:27017/sampledb sample.js
+	3) Open mongoshell using the following command
+		mongo localhost:27017/sampledb
+	4) Load the sever scripts
+		db.loadServerScripts();
+	5) Execute the Javscript methods
+		print(sum(3,4));
+
+Another sample JS Code for inserting a document in collection is 
+	conn = new Mongo();
+	db= conn.getDB('sampledb');
+	db.products.insert({
+		name:'Apple',
+		price:25,
+		quantity:34
+	})
+	print('A new product inserted into products collection');
+	
+	
+Disable JavaScript in MongoDB
+
+systemLog:
+   destination: file
+   path: "/var/log/mongodb/mongod.log"
+   logAppend: true
+storage:
+   journal:
+      enabled: true
+processManagement:
+   fork: true
+net:
+   bindIp: 127.0.0.1
+   port: 27017
+security:
+    authorization: "enabled"
+	javascriptEnabled: false

@@ -1,0 +1,22 @@
+
+//Run from shell only
+db.system.js.save({
+    _id: "sum", 
+    value: function (x, y) { 
+            print(`x is ${x} and y is ${y}`);
+            print('Doing addition using sum method');            
+            return x + y; 
+            }
+});
+
+db.loadServerScripts();
+sum(3,2) 
+
+//Try these in shell
+db.products.find({
+    quantity:{$gt:sum(36,22)}
+});
+
+db.products.find({
+    quantity:{$gt:sum(32,2)}
+});

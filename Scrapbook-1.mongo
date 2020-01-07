@@ -1,0 +1,78 @@
+//Collection name: salesdata
+/*
+//Sample Document
+{
+  "_id": {
+    "$oid": "5e12f4d85a6cc15d748ab04a"
+  },
+  "name": "Ganesh Kumar",
+  "sales": [
+    485848,
+    5740040,
+    4485000
+  ],
+  "region": "North",
+  "count": 28
+}
+
+*/
+db.salesdata.find();
+
+//Single key index
+db.salesdata.createIndex({name:1}, { name:'Index on name'});
+
+//compound index
+db.salesdata.createIndex({ name:-1, count:1}, { name:'Compound index on name and count'})
+
+//Multi-key index on sales array
+db.salesdata.createIndex({sales:1}, {name:'Index on sales list'})
+
+//Creating text index
+db.quotes.createIndex({ original:'text'}, { default_language:'english'});
+
+//Create index based on two fields override the default language with a language field value
+db.quotes.createIndex( { original:'text', 'translation.quote':'text'}, 
+    { language_override:'translation.language' });
+//-------------------------------------------
+//Database commands
+//-------------------------------------------
+
+db.runCommand({ aggregate:'salesdata',
+                pipeline: [
+                    { $project: { name: 1, sales:1, region:1 } },
+                    { $unwind: "$sales" },
+                    { $group: { _id: "$sales", count: { $sum : 1 } } }
+                ],
+                cursor: { }
+            });
+
+
+db.runCommand( { count: 'quotes' } )
+
+db.runCommand ( { distinct: "quotes", key: "language" } )
+
+db.runCommand(
+   {
+      delete: "salesdata",
+      deletes: [ { q: { region: "South" }, limit: 1 } ]
+   }
+);
+
+//Capped collections
+db.temps.drop();
+
+//Execute in mongoshell, not in VS Code editor(will not work in VS Code)
+db.createCollection('temps',{ capped : true, size : 300, max : 3 } )
+
+//Convert existing collection in to capped collection
+db.runCommand({"convertToCapped":"temps",size:300})
+
+db.temps.isCapped();
+
+db.temps.stats();
+db.temps.insert({ name:"Some data1", description:'This is sample description for data1'})
+db.temps.find();
+db.temps.insert({ name:"Some data2", description:'This is sample description for data2'})
+db.temps.insert({ name:"Some data3", description:'This is sample description for data3'})
+db.temps.insert({ name:"Some data4", description:'This is sample description for data4'})
+db.temps.insert({ name:"Some data5", description:'This is sample description for data5'})
