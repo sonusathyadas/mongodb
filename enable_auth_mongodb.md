@@ -1,5 +1,5 @@
 
-##Enable authentication in MongoDb
+## Enable authentication in MongoDb
 
 #### To enable username/password authentication in Mongodb do the following steps
 
