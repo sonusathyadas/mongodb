@@ -20,3 +20,5 @@ db.products.find({
 db.products.find({
     quantity:{$gt:sum(32,2)}
 });
+
+

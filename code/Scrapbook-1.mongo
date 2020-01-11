@@ -37,7 +37,7 @@ db.quotes.createIndex( { original:'text', 'translation.quote':'text'},
 //Database commands
 //-------------------------------------------
 
-db.runCommand({ aggregate:'salesdata',
+db.runCommand({ aggregate:'sales',
                 pipeline: [
                     { $project: { name: 1, sales:1, region:1 } },
                     { $unwind: "$sales" },
@@ -47,9 +47,11 @@ db.runCommand({ aggregate:'salesdata',
             });
 
 
-db.runCommand( { count: 'quotes' } )
+db.sales.count();
 
-db.runCommand ( { distinct: "quotes", key: "language" } )
+db.runCommand( { count: 'sales' } )
+
+db.runCommand ( { distinct: "sales", key: "Region" } )
 
 db.runCommand(
    {

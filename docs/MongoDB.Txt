@@ -67,7 +67,7 @@ GridFS
 			return a list of all files in a GridFS collection in the records database
 		eg: mongofiles --host abc.net --port 37017 -d=records list
 			List all files in records db located in abc.net server
-		eg: mongofiles -d=records put abc.lf
+		eg: mongofiles -d=records put abc.txt
 			Upload large file named abc.lf to database records 
 		eg: mongofiles -d=records delete abc.lf
 			Delete a file abc.lf from database records
