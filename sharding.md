@@ -99,7 +99,7 @@ Prerequisites
 16. Add all the shard members and router to the VS Code.
     ![VS Code](resources/vscode-3.jpg)
 17. Expand the sharded nodes and verify the distribution of documents across sharded members.
-    ![VS Code](resources/vscode-3.jpg)
+    ![VS Code](resources/vscode-4.jpg)
 ---
 References: https://docs.mongodb.com/manual/sharding/
 
