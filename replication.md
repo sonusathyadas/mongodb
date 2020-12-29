@@ -3,7 +3,8 @@
 Replication helps you to create highly available database servers. It helps you to synchronize data between multiple servers. This ensures reliability and high availability of database. You can recover from the data loss that occurs due to server failures. Replica can be used as a backup that helps for disaster recovery. Additionally, the replica can be used as a read-only server that reduces the latency for read requests. 
 
 ### Replication in MongoDB
-Replication in MongoDB is implemented using *Replica Set*. A *Replica Set* is a set of MongoDB instances that holds the seme set of data. It follows *Primary-Secondary* pattern where all write operations will happens only own Primary replica. All updates will be then replicated to the secondaries. There can be only one primary and multiple secondaries. Secondaries apply operations from the primary asynchronously. A ReplicaSet will have minimum of 3 nodes.
+Replication in MongoDB is implemented using *Replica Set*. A *Replica Set* is a set of MongoDB instances that holds the seme set of data. It follows *Primary-Secondary* pattern where all write operations will happens only on Primary replica. All updates will be then replicated to the secondaries. There can be only one primary and multiple secondaries. Secondaries apply operations from the primary asynchronously. A ReplicaSet will have minimum of 3 nodes.
+
 ![Replication](resources/replica-set.svg)
 
 The secondaries replicate the primary’s oplog and apply the operations to their data sets such that the secondaries’ data sets reflect the primary’s data set. If the primary is unavailable, an eligible secondary will hold an election to elect itself the new primary. Although clients cannot write data to secondaries, clients can read data from secondary members.
