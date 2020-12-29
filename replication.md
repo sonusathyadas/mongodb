@@ -13,7 +13,7 @@ A secondary can become a primary. If the current primary becomes unavailable, th
 ![Replication](resources/replica-set-election.svg)
 
 #### Arbiter node
-Whe nthe primary goes down an election happens between the secondaries to elect one as the primary. If the replicaset contains even number of replicas an extra mongod instance can be added as an *Arbiter*. An arbiter does not maintains the data instead it is used to maintain the quorum in a replica set. It responds to the heartbeat requests and election requests by other replica set members. As they do not store data it is cheaper to maintain an arbiter. Arbiters do not require dedicated hardware. 
+When the primary goes down an election happens between the secondaries to elect one as the primary. If the replicaset contains even number of replicas an extra mongod instance can be added as an *Arbiter*. An arbiter does not maintains the data instead it is used to maintain the quorum in a replica set. It responds to the heartbeat requests and election requests by other replica set members. As they do not store data it is cheaper to maintain an arbiter. Arbiters do not require dedicated hardware. 
 ![Arbiter](resources/replica-set-arbiter.svg)
 
 #### Automatic failover of instances
